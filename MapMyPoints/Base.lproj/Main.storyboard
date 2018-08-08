@@ -70,15 +70,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZTa-aR-HrP"/>
                                 </connections>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-be-sKQ">
+                                <rect key="frame" x="163" y="595" width="212" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setMapType:" destination="BYZ-38-t0r" eventType="valueChanged" id="JIM-mc-wRY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jEX-iT-fwO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1JQ-Yz-TFK"/>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5ZD-N7-Pff"/>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JHZ-D8-QvW"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K4q-tj-a3T"/>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QDM-Mq-jgh"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="jEX-iT-fwO" secondAttribute="bottom" id="TfQ-B8-sCf"/>
+                            <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="jEX-iT-fwO" secondAttribute="bottom" id="YiP-cv-aVj"/>
+                            <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="QvC-be-sKQ" secondAttribute="bottom" id="c7w-er-iCn"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gmh-Jf-v2d"/>
+                            <constraint firstItem="QvC-be-sKQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gn9-hE-tZw"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vRG-Qn-5BC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

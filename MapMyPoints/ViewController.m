@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "MapKit/MapKit.h"
 
+// good article about working with MKMapView -> https://www.devfright.com/mkmapview-and-mkmapview-delegate-tutorial/
+
 @interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -41,8 +43,25 @@
     
     [self addAnnotations];
     
-    
 }
+
+- (IBAction)setMapType:(UISegmentedControl *)sender {
+    
+        switch(sender.selectedSegmentIndex) {
+            case 0:
+                _mapView.mapType =  MKMapTypeStandard;
+                break;
+            case 1:
+                _mapView.mapType = MKMapTypeSatellite;
+                break;
+            case 2:
+                _mapView.mapType = MKMapTypeHybrid;
+                break;
+            default:
+                break;
+        }
+}
+
 - (IBAction)gemaltoTapped:(id)sender {
     [self centerMap:_gemaltoAnno];
 }
