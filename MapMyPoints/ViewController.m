@@ -64,14 +64,20 @@
 
 - (IBAction)gemaltoTapped:(id)sender {
     [self centerMap:_gemaltoAnno];
+    // Stopping the update of the location so the current view remains for the selected location
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (IBAction)bigskyTapped:(id)sender {
     [self centerMap:_bigskybarAnno];
+    // Stopping the update of the location so the current view remains for the selected location
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (IBAction)nycpizzaTapped:(id)sender {
     [self centerMap:_nycpizzaAnno];
+    // Stopping the update of the location so the current view remains for the selected location
+    [self.locationManager stopUpdatingLocation];
 }
 
 -(void) centerMap:(MKPointAnnotation *) centerPoint{

@@ -65,13 +65,13 @@
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jEX-iT-fwO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="573"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZTa-aR-HrP"/>
                                 </connections>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-be-sKQ">
-                                <rect key="frame" x="163" y="595" width="212" height="29"/>
+                                <rect key="frame" x="81" y="22" width="212" height="29"/>
                                 <segments>
                                     <segment title="Standard"/>
                                     <segment title="Satellite"/>
@@ -86,14 +86,14 @@
                         <constraints>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1JQ-Yz-TFK"/>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5ZD-N7-Pff"/>
-                            <constraint firstItem="jEX-iT-fwO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JHZ-D8-QvW"/>
+                            <constraint firstItem="jEX-iT-fwO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="JHZ-D8-QvW"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K4q-tj-a3T"/>
                             <constraint firstItem="jEX-iT-fwO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QDM-Mq-jgh"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="jEX-iT-fwO" secondAttribute="bottom" id="TfQ-B8-sCf"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="jEX-iT-fwO" secondAttribute="bottom" id="YiP-cv-aVj"/>
-                            <constraint firstItem="YHv-fK-B1c" firstAttribute="top" secondItem="QvC-be-sKQ" secondAttribute="bottom" id="c7w-er-iCn"/>
+                            <constraint firstItem="QvC-be-sKQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d0Z-YI-0IT"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gmh-Jf-v2d"/>
-                            <constraint firstItem="QvC-be-sKQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gn9-hE-tZw"/>
+                            <constraint firstItem="jEX-iT-fwO" firstAttribute="top" secondItem="QvC-be-sKQ" secondAttribute="bottom" id="r5I-BJ-qLa"/>
                             <constraint firstItem="YHv-fK-B1c" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vRG-Qn-5BC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
