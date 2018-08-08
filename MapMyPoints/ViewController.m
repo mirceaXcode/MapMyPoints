@@ -100,6 +100,8 @@
 }
 
 // these 2 functions where created so mapIsMoving gets the state of the map, so you are able to zoom-in and out if the map is not in a state of animation
+// For all this to work, we had to create MKMapView as delegate to the ViewController as well.
+
 -(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
     _mapIsMoving = YES;
 }
