@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MapKit/MapKit.h"
 
-@interface ViewController () <CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) MKPointAnnotation *gemaltoAnno;
@@ -21,6 +21,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (nonatomic, assign) BOOL mapIsMoving;
+
 @end
 
 @implementation ViewController
@@ -29,9 +31,13 @@
     [super viewDidLoad];
     
     self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager.delegate self];
+    // Initiate the delegate for the locationManager, if not, it will not become the main actor and the map will not move to current location of the user when that is triggered.
+    self.locationManager.delegate  = self;
     // Requesting user authorisation to allow the location + setting in info.plist -> NSLocationWhenInUseUsageDescription
     [self.locationManager requestWhenInUseAuthorization];
+    
+    // mapIsMoving was created in order to help allowing the user to be able to zoom-in on the location while the location is active. Because the location is updating at each movement by the user, it is impossible to do a zoom-in if you don't specify a state variable to keep track weather of not a map movement is in progress.
+    _mapIsMoving = NO;
     
     [self addAnnotations];
     
@@ -66,7 +72,9 @@
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
     self.currentAnno.coordinate = locations.lastObject.coordinate;
     
-    [self centerMap:self.currentAnno];
+    if(_mapIsMoving == NO){
+    [self centerMap:_currentAnno];
+    }
 }
 
 -(void) addAnnotations{
@@ -91,4 +99,12 @@
     [self.mapView addAnnotations:@[self.gemaltoAnno, self.bigskybarAnno, self.nycpizzaAnno]];
 }
 
+// these 2 functions where created so mapIsMoving gets the state of the map, so you are able to zoom-in and out if the map is not in a state of animation
+-(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
+    _mapIsMoving = YES;
+}
+
+-(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    _mapIsMoving = NO;
+}
 @end
